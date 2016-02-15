@@ -54,6 +54,11 @@ body {
   display: inline-block;
   width: 48%;
 }
+@media (min-width: 1800px) {
+  body {
+    max-width: 1024px;
+  }
+}
 @media (max-width: 800px) {
   #header {
     text-align: center;
