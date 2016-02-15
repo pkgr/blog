@@ -6,5 +6,6 @@ AppConfig.site_title = ENV.fetch('SITE_TITLE') { "My Blog" }
 AppConfig.site_author = ENV.fetch('SITE_AUTHOR') { "John Doe" }
 AppConfig.site_url = ENV.fetch('SITE_URL') { "http://example.com/" }
 AppConfig.twitter_username = ENV.fetch('TWITTER_USERNAME') { "@crohr" }
+AppConfig.posts_per_page = ENV.fetch('SIE_POSTS_PER_PAGE') { 10 }.to_i
 Octokit.client_id = ENV.fetch('GITHUB_CLIENT_ID') { nil }
 Octokit.client_secret = ENV.fetch('GITHUB_CLIENT_SECRET') { nil }

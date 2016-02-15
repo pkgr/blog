@@ -22,10 +22,21 @@
 </head>
 <body>
   <div id="header">
-    <div class="site-title"><%= link_to current_repo.name, root_path %></div>
+    <%= link_to AppConfig.site_url, class: "brand" do %>
+      <%= image_tag "packager-logo.svg", height: 60 %>
+    <% end %>
+    <ul>
+      <li><a href="https://packager.io/pricing">Pricing</a></li>
+      <li class="active"><a href="/">Blog</a></li>
+      <li><a href="https://packager.io/documentation">Documentation</a></li>
+    </ul>
   </div>
   <div id="content">
     <%= yield %>
+  </div>
+  <div id="footer">
+    <p><a href="https://packager.io">Packager.io</a> is a hosted continuous integration platform that allows you to build and publish Linux packages for your software, directly from your Github repository, without you knowing anything about deb or rpm packaging.</p>
+    <p>Ruby, Node.js, and Go apps are currently supported, and you can generate and publish public or private packages for Debian 7/8, Ubuntu 12.04/14.04, RHEL/CentOS 6/7, and SLES 11/12.<br><strong>Packaging made simple!</strong></p>
   </div>
 </body>
 </html>

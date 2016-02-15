@@ -2,7 +2,7 @@ class Post
   extend ActiveModel::Naming
   include ActiveModel::Model
   include ActiveModel::Conversion
-  attr_accessor :id, :title, :body, :published_at, :updated_at, :comments_count, :comments_url
+  attr_accessor :id, :title, :body, :published_at, :updated_at, :comments_count, :comments_url, :timeless
   attr_accessor :author_login, :author_avatar_url, :author_url
 
   def self.cache_params(opts = {})
@@ -39,13 +39,13 @@ class Post
       id: issue[:number],
       title: issue[:title],
       body: issue[:body],
-      published_at: issue[:closed_at],
-      updated_at: issue[:updated_at],
+      published_at: issue[:milestone] ? issue[:milestone][:due_on] : issue[:closed_at],
+      updated_at: issue[:milestone] ? issue[:milestone][:due_on] : issue[:updated_at],
       comments_count: issue[:comments].to_i,
       comments_url: issue[:html_url],
       author_login: issue[:user][:login],
       author_url: issue[:user][:html_url],
-      author_avatar_url: issue[:user][:avatar_url]
+      author_avatar_url: issue[:user][:avatar_url],
     )
   end
 
