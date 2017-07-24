@@ -53,7 +53,7 @@ h1 {
 }
 
 .markdown-body img {
-  float: right;
+  display: block;
 }
 
 @media (max-width: 800px) {
